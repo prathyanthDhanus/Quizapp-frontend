@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import RegisterImage from "../../assets/images/rb_66187.png";
 
 import { useGlobalFormik } from "../../customHooks/useFormik";
-import { useRegister } from "../../services/userService/authService";
+import { useRegister } from "../../services/authService";
 import CustomInputField from "../../components/inputfield/CustomInputField";
 import {
   registerInitialValues,

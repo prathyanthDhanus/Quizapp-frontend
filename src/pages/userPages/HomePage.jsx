@@ -4,36 +4,19 @@ import quizImage from "../../assets/images/speech-bubble-for-comic-text-quiz-car
 import vector from "../../assets/images/Vector.png";
 
 import Card from "../../components/card/Card";
+import { useFetchAllQuiz } from "../../services/quizService";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-  const quizzes = [
-    {
-      id: 1,
-      title: "General ",
-      description: "Test your general knowledge skills.",
-    },
-    { id: 2, title: "Science", description: "Explore the world of science." },
-    {
-      id: 3,
-      title: "Math",
-      description: "Challenge yourself with math problems.",
-    },
-    {
-      id: 3,
-      title: "Math",
-      description: "Challenge yourself with math problems.",
-    },
-    {
-      id: 3,
-      title: "Math",
-      description: "Challenge yourself with math problems.",
-    },
-    {
-      id: 3,
-      title: "Math",
-      description: "Challenge yourself with math problems.",
-    },
-  ];
+
+  //Function for fetch  all quiz
+  const { data: quizData } = useFetchAllQuiz();
+  const navigate = useNavigate();
+ //Select quiz type
+  const handleSelectQuiz = (quizId)=>{
+    console.log("first")
+    navigate(`/quiz/${quizId}`);
+  }
   return (
     <>
       <div className="container mx-auto  lg:py-5">
@@ -78,14 +61,21 @@ const HomePage = () => {
             <img src={vector} alt="vector" className="w-[11rem] mx-auto " />
           </div>
           <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-4 xl:grid-cols-4 place-items-center gap-10  my-10 lg:px-10">
-            {quizzes.map((quiz) => (
-              <Card
-                key={quiz.id}
-                title={quiz.title}
-                description={quiz.description}
-                onStart={() => handleStartQuiz(quiz.id)}
-              />
-            ))}
+            {quizData && quizData.length > 0 ? (
+              quizData.map((quiz) => (
+                <Card
+                  key={quiz._id}
+                  title={quiz.title}
+                  subtitle={quiz.category}
+                  description={quiz.description}
+                  questions={`Total questions: ${quiz.questions.length}`}
+                  duration={quiz?.timeLimit}
+                  onClick={() => handleSelectQuiz(quiz._id)}
+                />
+              ))
+            ) : (
+              <p>No quizzes available</p>
+            )}
           </div>
         </section>
         {/* categories section end */}

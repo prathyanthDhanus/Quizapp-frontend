@@ -1,7 +1,11 @@
 import React from "react";
 import unAuthImage from "../../assets/images/rb_19591.png";
+import { useNavigate } from "react-router-dom";
+
 
 const UnauthorizedPage = () => {
+
+  const navigate = useNavigate();
   return (
     <div className="h-screen flex flex-col items-center justify-center p-4">
       <img
@@ -14,7 +18,13 @@ const UnauthorizedPage = () => {
       </h1>
       <p className="text-center text-lg text-gray-700 poppins-semibold">
         You are not authorized to access this page.
+        
       </p>
+      <p className="text-center text-lg text-gray-700 poppins-semibold">
+     Click here to go <span className="text-customBlue hover:cursor-pointer" onClick={()=>navigate("/")}>Landing Page</span>
+        
+      </p>
+
     </div>
   );
 };

@@ -8,7 +8,7 @@ import {
   loginInitialValues,
   loginSchema,
 } from "../../utils/validation/authSchema";
-import { useLogin } from "../../services/userService/authService";
+import { useLogin } from "../../services/authService";
 
 import Spinner from "../../components/Loader/Spinner";
 import CustomButton from "../../components/customButton/CustomButton";

@@ -55,15 +55,18 @@ export const userRouter = createBrowserRouter([
         path: "/home",
         element: (
           <Suspense fallback={<CommonLoader />}>
+            
             <HomePage />
           </Suspense>
         ),
       },
       {
-        path: "/quiz",
+        path: "/quiz/:quizId",
         element: (
           <Suspense fallback={<CommonLoader />}>
+            <PrivateRoute>
             <QuizPage />
+            </PrivateRoute>
           </Suspense>
         ),
       },

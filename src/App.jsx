@@ -6,7 +6,8 @@ import { userRouter } from "./routes/userRoutes/UserRoute";
 function App() {
   return (
     <>
-    <RouterProvider router={userRouter}/>
+      <Toaster position="top-right" reverseOrder={false} />
+      <RouterProvider router={userRouter} />
     </>
   );
 }

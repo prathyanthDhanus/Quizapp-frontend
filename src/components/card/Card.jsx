@@ -4,11 +4,13 @@ const Card = ({
   bgColor = "bg-orange-500",
   title = "CHAMOMILLE",
   subtitle = "NATURAL, OIL",
-  price = "39.00 MLC",
+  questions = "39.00 MLC",
   description = "Perfect everywhere",
+  duration,
+  onClick
 }) => {
   return (
-    <div className="card m-auto text-gray-300 w-[clamp(260px,80%,300px)] hover:brightness-90 transition-all cursor-pointer group bg-gradient-to-tl from-gray-900 to-gray-950 hover:from-gray-800 hover:to-gray-950 border-r-2 border-t-2 border-gray-900 m-4 rounded-lg overflow-hidden relative">
+    <div className="card m-auto text-gray-300 w-[clamp(260px,80%,300px)] hover:brightness-90 transition-all cursor-pointer group bg-gradient-to-tl from-gray-900 to-gray-950 hover:from-gray-800 hover:to-gray-950 border-r-2 border-t-2 border-gray-900 m-4 rounded-lg overflow-hidden relative" onClick={onClick}>
       <div className="px-8 py-10">
         {/* Circle Icon */}
         <div
@@ -20,12 +22,13 @@ const Card = ({
 
         {/* Subtitle */}
         <div className="text-gray-300 uppercase tracking-widest">
-          {subtitle}
+        Category :  {subtitle}
         </div>
 
         {/* Description */}
         <div className="text-gray-400 mt-8">
-          <p className="font-bold">{price}</p>
+          <p className="font-bold">{questions}</p>
+          <p className="font-bold">Duration : {duration}</p>
           <p>{description}</p>
         </div>
       </div>

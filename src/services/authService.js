@@ -1,10 +1,10 @@
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import Axios from "../../axios/userAxiosInstance";
+import Axios from "../axios/userAxiosInstance";
 import {
   showSuccessToast,
   showErrorToast,
-} from "../../utils/toastNotification/Toast";
+} from "../utils/toastNotification/Toast";
 
 //============= user login service ================
 

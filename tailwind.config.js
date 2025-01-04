@@ -6,7 +6,9 @@ export default {
       colors: {
         customRed: "#FF2929", // Custom red color
         customBlue: "#3D3BF3", // Custom blue color
-        customLightBlue :"#0589ff",
+        customLightRed: "#FF6B6B", // Lighter red
+        customVioletBlue: "#6F6DFA", // Lighter blue
+        customLightBlue: "#0589ff",
         customYellow: "#F59E0B", // Tailwind's yellow-600 equivalent
         customWhite: "#FBFBFB", // Custom red color
         customGreen: "#4CAF50", // Custom green color
