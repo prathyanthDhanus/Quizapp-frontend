@@ -1,6 +1,6 @@
 # Quiz App
 
-**This is the frontend for the Quiz App built using React. The frontend allows users to interact with the backend to take quizzes, select answers, and view their scores after completing a quiz.
+** This is the frontend for the Quiz App built using React. The frontend allows users to interact with the backend to take quizzes, select answers, and view their scores after completing a quiz.
 
 
 
@@ -10,7 +10,7 @@
 - **User Authentication: Users can register and log in to access quizzes.** 
 - **Quiz Display: Users can view available quizzes and start taking them.** 
 - **Question Navigation: Users can view questions one by one, select answers, and navigate between them.** 
-- **RResponsive Design: The app is responsive and works well across different devices.** 
+- **Responsive Design: The app is responsive and works well across different devices.** 
 
 ## Technologies Used
 - **React: Frontend framework for building the user interface.** 
