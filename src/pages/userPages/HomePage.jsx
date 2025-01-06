@@ -14,7 +14,6 @@ const HomePage = () => {
   const navigate = useNavigate();
  //Select quiz type
   const handleSelectQuiz = (quizId)=>{
-    console.log("first")
     navigate(`/quiz/${quizId}`);
   }
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/images/rb_52818.png";
 
@@ -6,7 +6,32 @@ const UserNavbar = () => {
   const navigate = useNavigate();
 
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
+  // Check user logged in or not
+  const checkLoginStatus = () => {
+    const token = localStorage.getItem("token");
+    return token && token.trim().length > 0;
+  };
+
+  useEffect(() => {
+    setLoggedIn(checkLoginStatus());
+  }, []);
+
+  // Handle login/logout button click
+  const handleLoginLogout = () => {
+    if (loggedIn) {
+      // If logged in, log out the user
+      localStorage.removeItem("token");
+      setLoggedIn(false);
+      navigate("/login");
+    } else {
+      // If not logged in, navigate to login
+      navigate("/login");
+    }
+  };
+
+  //Toggle the navbar in mobile view
   const handleNavbarToggle = () => {
     setIsNavbarOpen((prev) => !prev);
   };
@@ -88,10 +113,10 @@ const UserNavbar = () => {
             </li>
             <li>
               <button
-                onClick={() => navigate("/login")}
+                onClick={handleLoginLogout}
                 className="block py-2 px-3 text-customLightBlue rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
               >
-                Login
+                {loggedIn ? "Logout" : "Login"}
               </button>
             </li>
           </ul>

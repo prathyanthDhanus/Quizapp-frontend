@@ -7,7 +7,7 @@ import {
 } from "../utils/toastNotification/Toast";
 
 
-//================== fetch all questions  ===============
+//================== Fetch all questions  ===============
 
 export const useFetchAllQuestions = (quizId) => {
   return useQuery({
@@ -21,7 +21,7 @@ export const useFetchAllQuestions = (quizId) => {
     },
     onError: (error) => {
       showErrorToast(
-        error?.response?.data?.message || "Failed to fetch qusetion. Try again."
+        error?.response?.data?.message || "Failed to fetch qusetions. Try again."
       );
     },
   });

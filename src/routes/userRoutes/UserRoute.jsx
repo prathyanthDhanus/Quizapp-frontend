@@ -9,11 +9,12 @@ import UserLayout from "../../layouts/UserLayout";
 
 //Lazy loaded pages
 const LandingPage = lazy(() => import("../../pages/userPages/LandingPage"));
-const UserLoginPage = lazy(()=>import("../../pages/userPages/UserLoginPage"));
-const UserRegisterPage = lazy(()=>import("../../pages/userPages/UserRegisterPage"));
-const HomePage = lazy(()=>import("../../pages/userPages/HomePage"));
-const QuizPage = lazy(()=>import("../../pages/userPages/QuizPage"));
-
+const UserLoginPage = lazy(() => import("../../pages/userPages/UserLoginPage"));
+const UserRegisterPage = lazy(() =>
+  import("../../pages/userPages/UserRegisterPage")
+);
+const HomePage = lazy(() => import("../../pages/userPages/HomePage"));
+const QuizPage = lazy(() => import("../../pages/userPages/QuizPage"));
 
 export const userRouter = createBrowserRouter([
   {
@@ -55,8 +56,9 @@ export const userRouter = createBrowserRouter([
         path: "/home",
         element: (
           <Suspense fallback={<CommonLoader />}>
-            
-            <HomePage />
+            <PrivateRoute>
+              <HomePage />
+            </PrivateRoute>
           </Suspense>
         ),
       },
@@ -65,7 +67,7 @@ export const userRouter = createBrowserRouter([
         element: (
           <Suspense fallback={<CommonLoader />}>
             <PrivateRoute>
-            <QuizPage />
+              <QuizPage />
             </PrivateRoute>
           </Suspense>
         ),

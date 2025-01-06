@@ -1,6 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import CustomButton from "../../components/customButton/CustomButton";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
+  //Function for get start
+  const handleStartClick = () => {
+    const token = localStorage.getItem("token");
+    // Check if the token exists and is not empty
+    token ? navigate("/home") : navigate("/login");
+  };
+
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
       {/* Hero Section */}
@@ -12,9 +23,15 @@ const LandingPage = () => {
           <p className="text-lg md:text-xl mb-6">
             Test your knowledge with our fun and engaging quizzes!
           </p>
-          <button className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-gray-200 transition">
-            Get Started
-          </button>
+         
+         <div className="flex justify-center">
+         <CustomButton
+            buttonText="Get Started"
+            className="w-full my-5 bg-customWhite text-customBlue poppins-semibold hover:text-white hover:bg-customBlue hover:border-customYellow"
+            type="submit"
+            onClick={handleStartClick}
+          />
+         </div>
         </div>
       </header>
 
@@ -81,9 +98,13 @@ const LandingPage = () => {
           <h2 className="text-2xl font-bold mb-4">
             Ready to start your quiz journey?
           </h2>
-          <button className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-gray-200 transition">
-            Join Now
-          </button>
+          <div className="flex justify-center">
+         <CustomButton
+            buttonText="Get Started"
+            className="w-full my-5 bg-customWhite text-customBlue poppins-semibold hover:text-white hover:bg-customBlue hover:border-customYellow"
+            type="submit"
+          />
+         </div>
         </div>
       </footer>
     </div>

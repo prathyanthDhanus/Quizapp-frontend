@@ -6,7 +6,7 @@ import {
   showErrorToast,
 } from "../utils/toastNotification/Toast";
 
-//============= user login service ================
+//============= User login service ================
 
 export const useLogin = () => {
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ export const useLogin = () => {
   });
 };
 
-//============= user register service ================
+//============= User register service ================
 
 export const useRegister = () => {
   const navigate = useNavigate();
